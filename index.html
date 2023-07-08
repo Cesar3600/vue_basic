@@ -21,7 +21,12 @@
          text:"Hola VueJS"
         }
       },
-      template:`{{text}}`
+      template:`{{text}}`,
+      watch:{
+        text(){
+          console.log("Watcher")
+        }
+      }
     }).mount("#app")
 
   </script> 
