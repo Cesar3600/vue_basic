@@ -18,10 +18,15 @@
     const vm = Vue.createApp({
       data(){
         return {
-          counter:0
+          text:"Hola vue"
         }
       },
-      template:``
+      methods:{
+        change(e){
+          this.text= e.target.value
+        }
+      },
+      template:`<p>{{text}}</p><input type="text" v-on:change="change" />`
     }).mount("#app")
 
   </script> 
