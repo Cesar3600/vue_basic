@@ -18,15 +18,21 @@
     const vm = Vue.createApp({
       data(){
         return {
-         text:"Hola VueJS"
+         text:"Puerta cerrada",
+         open:false
         }
       },
       template:`{{text}}`,
       watch:{
-        text(value, oldValue){
-          console.log("Watcher ", value, oldValue)
+        open(value){
+          if(value){
+            this.text="Puerta abierta"
+          }else{
+            this.text="Puerta cerrada"
+          }
         }
-      }
+      },
+      template: `<div>{{text}}</div><button @click="open = !open">{{this.open ? 'cerrar':'abrir'}}</button>`
     }).mount("#app")
 
   </script> 
