@@ -10,15 +10,22 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   
   
-  <div id="app">{{text}}</div>
+  <div id="app"></div>
     
   <script>
     Vue.createApp({
       data(){
         return {
-          text:"Hola VueJS !!!!",
+          text: "Hola VueJS interpolacion 2  v-text!!!!",
+          once: "Solo me renderizo una vez",
+          textoHtml:"<h1>me renderizare como HTML</h1>"
         }
-      }
+      },
+      template:`
+        <p v-text="text"></p>
+        <p v-once v-text="once"></p>
+        <p v-html="textoHtml"></p>
+      `
     }).mount("#app")
 
   </script>
