@@ -35,10 +35,13 @@
       computed:{
         label(){
           return this.open ? 'cerrar':'abrir'
+        },
+        styles(){
+          return this.open ? ['open']:['closed']
         }
-     },
+      },
       template: `
-      <div class="container" :class="{'open':open,'closed':!open}">
+      <div class="container" :class="styles">
         <h2>{{text}}</h2>
         <button @click="open = !open">{{label}}</button>
       </div>`
