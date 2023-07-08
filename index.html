@@ -10,22 +10,21 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   
   
-  <div id="app"></div>
+  <div id="app"> 
+    
+  </div>
     
   <script>
-    Vue.createApp({
+    const vm = Vue.createApp({
       data(){
         return {
-          text: "Hola VueJS interpolacion 2  v-text!!!!",
-          once: "Solo me renderizo una vez",
-          textoHtml:"<h1>me renderizare como HTML</h1>"
+          attr:"src",
+          attr2:"cuqalquierCosa",
+          image:"https://yt3.ggpht.com/fstPlU4WXJpO5nz_6se7C73pmLH4qbroSt-KxAwdigIkIssiQuHD8KBZCtaq6nSGkqyKrBkIcQ_ezhU=s800-nd-v1",
+          altImage:"girl"
         }
       },
-      template:`
-        <p v-text="text"></p>
-        <p v-once v-text="once"></p>
-        <p v-html="textoHtml"></p>
-      `
+      template:`<img v-bind:[attr]="image" v-bind:[attr2]="altImage">`
     }).mount("#app")
 
   </script>
