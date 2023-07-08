@@ -26,7 +26,7 @@
           this.text= e.target.value
         }
       },
-      template:`<p>{{text}}</p><input type="text" v-on:change="change" />`
+      template:`<p>{{text}}</p><input type="text" @:input="change" :value=""/>`
     }).mount("#app")
 
   </script> 
