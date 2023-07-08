@@ -18,10 +18,24 @@
     const vm = Vue.createApp({
       data(){
         return {
-
+          counter:0
         }
       },
-      template:``
+      methods:{
+        increment(){
+          this.counter++
+          console.log("incrementando")
+        },
+        decrement(){
+          this.counter--
+          console.log("decrementando")
+        }
+      },
+      template:`
+        <h1>{{counter}}</h1>
+        <button v-on:click="decrement"> - </button>
+        <button v-on:click="increment"> + </button>
+      `
     }).mount("#app")
 
   </script>
