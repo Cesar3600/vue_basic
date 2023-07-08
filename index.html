@@ -23,13 +23,11 @@
       },
       methods:{
         submit(e){
-          e.preventDefault();
-          console.log(e)
-
+          this.counter++
         },
       }, 
       template:`
-        <form v-on:submit="submit">
+        <form v-on:submit.prevent.stop="submit">
           <button> {{counter}} </button>
         </form>`
     }).mount("#app")
