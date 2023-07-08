@@ -22,22 +22,18 @@
         }
       },
       methods:{
-        increment(){
-          this.counter++
-          console.log("incrementando")
+        submit(e){
+          e.preventDefault();
+          console.log(e)
+
         },
-        decrement(){
-          this.counter--
-          console.log("decrementando")
-        }
-      },
+      }, 
       template:`
-        <h1>{{counter}}</h1>
-        <button v-on:click="decrement"> - </button>
-        <button v-on:click="increment"> + </button>
-      `
+        <form v-on:submit="submit">
+          <button> {{counter}} </button>
+        </form>`
     }).mount("#app")
 
-  </script>
+  </script> 
 </body>
 </html>
