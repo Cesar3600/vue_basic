@@ -23,8 +23,8 @@
       },
       template:`{{text}}`,
       watch:{
-        text(){
-          console.log("Watcher")
+        text(value, oldValue){
+          console.log("Watcher ", value, oldValue)
         }
       }
     }).mount("#app")
