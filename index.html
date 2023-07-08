@@ -23,10 +23,18 @@
           now:new Date()
         }
       },
+      computed:{
+        fullName() {
+          return this.firstName+" "+this.lastName;
+        },
+        today(){
+          return this.now.toLocaleDateString();
+        }
 
+      },
       template:`
-        <div>{{firstName}} {{lastName}}</div>
-        <div>{{now}}</div>
+        <div>{{fullName}}</div>
+        <div>{{today}}</div>
 
       `
     }).mount("#app")
