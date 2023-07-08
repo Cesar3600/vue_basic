@@ -19,10 +19,7 @@
       data(){
         return {
          text:"Puerta cerrada",
-         open:false,
-         styles:{
-          backgroundColor:'#eca1a6'
-         }
+         open:false
         }
       },
       template:`{{text}}`,
@@ -30,11 +27,8 @@
         open(value){
           if(value){
             this.text="Puerta abierta"
-            this.styles.backgroundColor = "#b5e7a0"
-            
           }else{
             this.text="Puerta cerrada"
-            this.styles.backgroundColor = "#eca1a6"
           }
         }
       },
@@ -44,7 +38,7 @@
         }
       },
       template: `
-      <div class="container" :style="styles">
+      <div class="container">
         <h2>{{text}}</h2>
         <button @click="open = !open">{{label}}</button>
       </div>`
