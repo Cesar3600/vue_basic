@@ -18,25 +18,10 @@
     const vm = Vue.createApp({
       data(){
         return {
-          firstName:"Catherine",
-          lastName:"Alva",
-          now:new Date()
+         text:"Hola VueJS"
         }
       },
-      computed:{
-        fullName() {
-          return this.firstName+" "+this.lastName;
-        },
-        today(){
-          return this.now.toLocaleDateString();
-        }
-
-      },
-      template:`
-        <div>{{fullName}}</div>
-        <div>{{today}}</div>
-
-      `
+      template:`{{text}}`
     }).mount("#app")
 
   </script> 
