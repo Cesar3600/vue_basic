@@ -14,16 +14,19 @@
       const app = Vue.createApp({
         template: `
         <div>
-          <v-header>titulo</v-header>
-          <div>lorem ipsum dolm sit</div>
+          <v-layout>
+            <template v-slot:header>
+              <button>titulo</button>
+            </template>
+          </v-layout>
         </div>
         `
       })
 
-      app.component('v-header', {
+      app.component('v-layout', {
         template: `
           <header>
-            <slot></slot>
+            <slot name="header"></slot>
           </header>
         `
       })
