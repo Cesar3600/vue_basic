@@ -12,7 +12,20 @@
 
     <script>
       const app = Vue.createApp({
-        template: ``
+        template: `
+        <div>
+          <v-header>titulo</v-header>
+          <div>lorem ipsum dolm sit</div>
+        </div>
+        `
+      })
+
+      app.component('v-header', {
+        template: `
+          <header>
+            <slot></slot>
+          </header>
+        `
       })
 
       const vm = app.mount('#app')
