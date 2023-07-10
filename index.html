@@ -14,32 +14,33 @@
       const app = Vue.createApp({
         data() {
           return {
-            items: ['uno', 'dos', 'tres']
+            text: 'Hola vue!!'
           }
         },
         methods: {
-          rmv(position) {
-            this.items = this.items.filter((el, i) => i != position)
+          onInputChange(e) {
+            this.text = e
           }
         },
-        template: `<ul>
-          <v-item v-for="(item,i) in items" v-bind:text="item" v-on:remove="rmv(i)" :key="i"/> 
-        </ul>`
+        template: `
+          <p>{{text}}</p>
+          <v-input v-bind:inputTxt="text" v-on:inputUpdate="onInputChange"/>
+        `
       })
 
-      app.component('v-item', {
+      app.component('v-input', {
         props: {
-          text: {
+          inputTxt: {
             type: String
           }
         },
         methods: {
-          removed() {
-            this.$emit('remove')
+          onHandleInput(e) {
+            this.$emit('inputUpdate', e.target.value)
           }
         },
         template: `
-          <li v-on:click="removed">{{text}}</li>
+          <input type="text"  v-bind:value="inputTxt" v-on:input="onHandleInput"/>
         `
       })
 
@@ -47,35 +48,3 @@
     </script>
   </body>
 </html>
-<!-- 
-    
-    const app = Vue.createApp({
-      data() {
-        return {
-          items: ['uno', 'dos', 'tres']
-        }
-      },
-      template: `
-        <ul>
-          <v-item v-for="(item,i) in items" v-bind:text="item" :key="i"></v-item>  
-        </ul>
-      `
-    })
-    
-    app.component('v-item', {
-      props:{
-        text:{
-          type:String,
-          default:'texto vacio'
-        }
-      },
-    
-      template: `
-        <li>
-          {{text}}
-        </li>`
-    })
-    
-    const vm = app.mount('#app')
-
-  -->
