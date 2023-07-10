@@ -11,7 +11,22 @@
     <div id="app"></div>
 
     <script>
-      const app = Vue.createApp({})
+      const app = Vue.createApp({
+        template: `
+          <ul>
+            <v-item>Item 1</v-item>  
+            <v-item>Item 2</v-item>  
+            <v-item>Item 3</v-item>  
+          </ul>
+        `
+      })
+
+      app.component('v-item', {
+        template: `
+          <li>
+            <slot></slot>
+          </li>`
+      })
       const vm = app.mount('#app')
     </script>
   </body>
