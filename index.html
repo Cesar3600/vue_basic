@@ -17,14 +17,9 @@
             text: 'Hola vue!!'
           }
         },
-        methods: {
-          onInputChange(e) {
-            this.text = e
-          }
-        },
         template: `
           <p>{{text}}</p>
-          <v-input v-bind:inputTxt="text" v-on:inputUpdate="onInputChange"/>
+          <v-input v-model:inputTxt="text"/>
         `
       })
 
@@ -36,7 +31,7 @@
         },
         methods: {
           onHandleInput(e) {
-            this.$emit('inputUpdate', e.target.value)
+            this.$emit('update:inputTxt', e.target.value)
           }
         },
         template: `
