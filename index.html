@@ -12,30 +12,7 @@
 
     <script>
       const app = Vue.createApp({
-        data() {
-          return {
-            text: 'Hola vue!!'
-          }
-        },
         template: `
-          <p>{{text}}</p>
-          <v-input v-model:inputTxt="text"/>
-        `
-      })
-
-      app.component('v-input', {
-        props: {
-          inputTxt: {
-            type: String
-          }
-        },
-        methods: {
-          onHandleInput(e) {
-            this.$emit('update:inputTxt', e.target.value)
-          }
-        },
-        template: `
-          <input type="text"  v-bind:value="inputTxt" v-on:input="onHandleInput"/>
         `
       })
 
