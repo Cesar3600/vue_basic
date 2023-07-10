@@ -16,7 +16,10 @@
         <div>
           <v-layout>
             <template v-slot:header>
-              <button>titulo</button>
+              <button>Titulo</button>         
+            </template>
+            <template v-slot:content>
+              lorem ipsum dolom sit ammet
             </template>
           </v-layout>
         </div>
@@ -28,6 +31,9 @@
           <header>
             <slot name="header"></slot>
           </header>
+          <div>
+            <slot name="content"></slot>
+          </div>
         `
       })
 
