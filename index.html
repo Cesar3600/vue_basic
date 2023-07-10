@@ -11,37 +11,71 @@
     <div id="app"></div>
 
     <script>
-
       const app = Vue.createApp({
         data() {
           return {
             items: ['uno', 'dos', 'tres']
           }
         },
-        template: `
-          <ul>
-            <v-item v-for="(item,i) in items" v-bind:text="item" :key="i"></v-item>  
-          </ul>
-        `
-      })
-      
-      app.component('v-item', {
-        props:{
-          text:{
-            type:String,
-            default:'texto vacio'
+        methods: {
+          rmv(position) {
+            this.items = this.items.filter((el, i) => i != position)
           }
         },
-      
-        template: `
-          <li>
-            {{text}}
-          </li>`
+        template: `<ul>
+          <v-item v-for="(item,i) in items" v-bind:text="item" v-on:remove="rmv(i)" :key="i"/> 
+        </ul>`
       })
-      
-      const vm = app.mount('#app')
 
+      app.component('v-item', {
+        props: {
+          text: {
+            type: String
+          }
+        },
+        methods: {
+          removed() {
+            this.$emit('remove')
+          }
+        },
+        template: `
+          <li v-on:click="removed">{{text}}</li>
+        `
+      })
+
+      const vm = app.mount('#app')
     </script>
   </body>
 </html>
 <!-- 
+    
+    const app = Vue.createApp({
+      data() {
+        return {
+          items: ['uno', 'dos', 'tres']
+        }
+      },
+      template: `
+        <ul>
+          <v-item v-for="(item,i) in items" v-bind:text="item" :key="i"></v-item>  
+        </ul>
+      `
+    })
+    
+    app.component('v-item', {
+      props:{
+        text:{
+          type:String,
+          default:'texto vacio'
+        }
+      },
+    
+      template: `
+        <li>
+          {{text}}
+        </li>`
+    })
+    
+    const vm = app.mount('#app')
+
+  -->
